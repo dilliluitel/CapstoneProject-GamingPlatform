@@ -103,5 +103,12 @@ namespace GamingPlatform
                 childForm.Close();
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SudokuSolver sudoku = new SudokuSolver();
+            sudoku.Show();
+            this.Hide();
+        }
     }
 }
