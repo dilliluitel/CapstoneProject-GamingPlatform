@@ -19,10 +19,10 @@ namespace GamingPlatform
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string username = textBox1.Text;
+            string username = textBox1.Text.ToLower();
             string password = textBox2.Text;
 
-            if (username == "Admin" && password == "123")
+            if (username == "admin" && password == "123")
             {
                 MessageBox.Show("Login Success");
 

@@ -1,7 +1,7 @@
 ﻿
 namespace GamingPlatform
 {
-    partial class SudokuSolver
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,16 @@ namespace GamingPlatform
         /// </summary>
         private void InitializeComponent()
         {
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
             this.Board = new System.Windows.Forms.TableLayoutPanel();
             this.textBox51 = new System.Windows.Forms.TextBox();
             this.textBox33 = new System.Windows.Forms.TextBox();
@@ -112,12 +122,123 @@ namespace GamingPlatform
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.Board.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.AutoScroll = true;
+            this.splitContainer1.Panel1.Controls.Add(this.label1);
+            this.splitContainer1.Panel1.Controls.Add(this.Board);
+            this.splitContainer1.Panel1.Controls.Add(this.label2);
+            this.splitContainer1.Panel1.Controls.Add(this.comboBox1);
+            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.button2);
+            this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
+            this.splitContainer1.Panel2.Controls.Add(this.button1);
+            this.splitContainer1.Size = new System.Drawing.Size(1741, 1313);
+            this.splitContainer1.SplitterDistance = 856;
+            this.splitContainer1.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(980, 30);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(99, 32);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Level :";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Easy",
+            "Medium",
+            "Hard"});
+            this.comboBox1.Location = new System.Drawing.Point(1082, 30);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(112, 28);
+            this.comboBox1.TabIndex = 10;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5});
+            this.dataGridView1.Location = new System.Drawing.Point(392, 135);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 62;
+            this.dataGridView1.RowTemplate.Height = 28;
+            this.dataGridView1.Size = new System.Drawing.Size(815, 280);
+            this.dataGridView1.TabIndex = 4;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Column1";
+            this.Column1.MinimumWidth = 8;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 150;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Column2";
+            this.Column2.MinimumWidth = 8;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 150;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Column3";
+            this.Column3.MinimumWidth = 8;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 150;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Column4";
+            this.Column4.MinimumWidth = 8;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 150;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Column5";
+            this.Column5.MinimumWidth = 8;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 150;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.OliveDrab;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(480, 17);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(197, 77);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Submit";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // Board
             // 
@@ -216,7 +337,7 @@ namespace GamingPlatform
             this.Board.Controls.Add(this.textBox1, 0, 0);
             this.Board.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Board.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.Board.Location = new System.Drawing.Point(121, 109);
+            this.Board.Location = new System.Drawing.Point(392, 103);
             this.Board.Margin = new System.Windows.Forms.Padding(10);
             this.Board.Name = "Board";
             this.Board.RowCount = 9;
@@ -230,8 +351,7 @@ namespace GamingPlatform
             this.Board.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.Board.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.Board.Size = new System.Drawing.Size(778, 706);
-            this.Board.TabIndex = 0;
-            this.Board.Paint += new System.Windows.Forms.PaintEventHandler(this.Board_Paint);
+            this.Board.TabIndex = 11;
             // 
             // textBox51
             // 
@@ -1081,103 +1201,65 @@ namespace GamingPlatform
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label1.Location = new System.Drawing.Point(347, 38);
+            this.label1.Location = new System.Drawing.Point(577, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(237, 37);
-            this.label1.TabIndex = 1;
+            this.label1.TabIndex = 12;
             this.label1.Text = "Sudoku Solver";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.OliveDrab;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(212, 890);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(197, 77);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Submit";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Easy",
-            "Medium",
-            "Hard"});
-            this.comboBox1.Location = new System.Drawing.Point(796, 52);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(112, 28);
-            this.comboBox1.TabIndex = 6;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(691, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 32);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Level :";
             // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.OliveDrab;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(552, 890);
+            this.button2.Location = new System.Drawing.Point(820, 17);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(197, 77);
-            this.button2.TabIndex = 7;
+            this.button2.TabIndex = 8;
             this.button2.Text = "Solve";
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // SudokuSolver
+            // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 1346);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.Board);
-            this.Name = "SudokuSolver";
-            this.Text = "SudokuSolver";
+            this.ClientSize = new System.Drawing.Size(1741, 1313);
+            this.Controls.Add(this.splitContainer1);
+            this.Name = "Form1";
+            this.Text = "Form1";
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.Board.ResumeLayout(false);
             this.Board.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel Board;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox21;
-        private System.Windows.Forms.TextBox textBox20;
-        private System.Windows.Forms.TextBox textBox19;
-        private System.Windows.Forms.TextBox textBox18;
-        private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.TableLayoutPanel Board;
+        private System.Windows.Forms.TextBox textBox51;
+        private System.Windows.Forms.TextBox textBox33;
+        private System.Windows.Forms.TextBox textBox24;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox60;
+        private System.Windows.Forms.TextBox textBox69;
+        private System.Windows.Forms.TextBox textBox78;
+        private System.Windows.Forms.TextBox textBox42;
+        private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.TextBox textBox81;
         private System.Windows.Forms.TextBox textBox80;
         private System.Windows.Forms.TextBox textBox79;
@@ -1231,15 +1313,26 @@ namespace GamingPlatform
         private System.Windows.Forms.TextBox textBox25;
         private System.Windows.Forms.TextBox textBox23;
         private System.Windows.Forms.TextBox textBox22;
-        private System.Windows.Forms.TextBox textBox51;
-        private System.Windows.Forms.TextBox textBox33;
-        private System.Windows.Forms.TextBox textBox24;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox60;
-        private System.Windows.Forms.TextBox textBox69;
-        private System.Windows.Forms.TextBox textBox78;
-        private System.Windows.Forms.TextBox textBox42;
-        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox textBox21;
+        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
     }
 }
