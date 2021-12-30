@@ -17,14 +17,14 @@ namespace GamingPlatform
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Submit_Click(object sender, EventArgs e)
         {
             string username = textBox1.Text.ToLower();
             string password = textBox2.Text;
 
             if (username == "admin" && password == "123")
             {
-                MessageBox.Show("Login Success");
+                //MessageBox.Show("Login Success");
 
                 MDIParent1 parent = new MDIParent1();
                 parent.Show();

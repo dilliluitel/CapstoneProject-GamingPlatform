@@ -46,11 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="TicTacToe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="TicTacToe.Designer.cs">
+      <DependentUpon>TicTacToe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Puzzle.cs" />
+    <Compile Include="SudokuSolver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SudokuSolver.Designer.cs">
+      <DependentUpon>SudokuSolver.cs</DependentUpon>
     </Compile>
     <Compile Include="MDIParent1.cs">
       <SubType>Form</SubType>
@@ -58,13 +65,7 @@
     <Compile Include="MDIParent1.Designer.cs">
       <DependentUpon>MDIParent1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Solve.cs" />
-    <Compile Include="SudokuSolver.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SudokuSolver.Designer.cs">
-      <DependentUpon>SudokuSolver.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Sudoku.cs" />
     <Compile Include="UserLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,14 +74,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MDIParent1.resx">
-      <DependentUpon>MDIParent1.cs</DependentUpon>
+    <EmbeddedResource Include="TicTacToe.resx">
+      <DependentUpon>TicTacToe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SudokuSolver.resx">
       <DependentUpon>SudokuSolver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIParent1.resx">
+      <DependentUpon>MDIParent1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserLogin.resx">
       <DependentUpon>UserLogin.cs</DependentUpon>

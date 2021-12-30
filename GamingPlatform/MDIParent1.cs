@@ -104,11 +104,19 @@ namespace GamingPlatform
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Submit_Click(object sender, EventArgs e)
         {
             SudokuSolver sudoku = new SudokuSolver();
+
             sudoku.Show();
-            this.Hide();
+           // this.Hide();
+        }
+
+        private void solve_Click(object sender, EventArgs e)
+        {
+            TicTacToe ticTacToe = new TicTacToe();
+            ticTacToe.Show();
+            //this.Hide();
         }
     }
 }

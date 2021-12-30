@@ -36,9 +36,9 @@ namespace GamingPlatform
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.Submit = new System.Windows.Forms.Button();
+            this.solve = new System.Windows.Forms.Button();
+            this.Clear = new System.Windows.Forms.Button();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -84,48 +84,49 @@ namespace GamingPlatform
             this.toolStripStatusLabel.Size = new System.Drawing.Size(60, 25);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // button1
+            // Submit
             // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Purple;
-            this.button1.Location = new System.Drawing.Point(206, 129);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(218, 92);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Sudoku Solver";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Submit.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Submit.ForeColor = System.Drawing.Color.Purple;
+            this.Submit.Location = new System.Drawing.Point(206, 129);
+            this.Submit.Name = "Submit";
+            this.Submit.Size = new System.Drawing.Size(218, 92);
+            this.Submit.TabIndex = 4;
+            this.Submit.Text = "Sudoku Solver";
+            this.Submit.UseVisualStyleBackColor = true;
+            this.Submit.Click += new System.EventHandler(this.Submit_Click);
             // 
-            // button2
+            // solve
             // 
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Purple;
-            this.button2.Location = new System.Drawing.Point(206, 286);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(218, 92);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Tik-Tac-Toe";
-            this.button2.UseVisualStyleBackColor = true;
+            this.solve.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.solve.ForeColor = System.Drawing.Color.Purple;
+            this.solve.Location = new System.Drawing.Point(206, 286);
+            this.solve.Name = "solve";
+            this.solve.Size = new System.Drawing.Size(218, 92);
+            this.solve.TabIndex = 5;
+            this.solve.Text = "Tik-Tac-Toe";
+            this.solve.UseVisualStyleBackColor = true;
+            this.solve.Click += new System.EventHandler(this.solve_Click);
             // 
-            // button3
+            // Clear
             // 
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Purple;
-            this.button3.Location = new System.Drawing.Point(206, 463);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(218, 92);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "HangMan Game";
-            this.button3.UseVisualStyleBackColor = true;
+            this.Clear.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Clear.ForeColor = System.Drawing.Color.Purple;
+            this.Clear.Location = new System.Drawing.Point(206, 463);
+            this.Clear.Name = "Clear";
+            this.Clear.Size = new System.Drawing.Size(218, 92);
+            this.Clear.TabIndex = 6;
+            this.Clear.Text = "HangMan Game";
+            this.Clear.UseVisualStyleBackColor = true;
             // 
             // MDIParent1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1572, 1092);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Clear);
+            this.Controls.Add(this.solve);
+            this.Controls.Add(this.Submit);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.toolStrip);
             this.IsMdiContainer = true;
@@ -148,9 +149,9 @@ namespace GamingPlatform
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
         private System.Windows.Forms.ToolTip toolTip;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button Submit;
+        private System.Windows.Forms.Button solve;
+        private System.Windows.Forms.Button Clear;
     }
 }
 

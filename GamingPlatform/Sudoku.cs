@@ -3,34 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GamingPlatform
 {
     public class Sudoku
     {
-        private int size = 9;
+        private const int size = 9;
 
-        private bool SearchRow(int[,] board, int number, int row)
+        private bool SearchRow(int[,] grid, int number, int row)
         {
-            // int size = board.GetLength(0);
             for (int i = 0; i < size; i++)
             {
-                if (board[row, i] == number)
+                if (grid[row, i] == number)
                     return true;
             }
             return false;
         }
-        private bool SearchColumn(int[,] board, int number, int col)
+
+        private bool SearchColumn(int[,] grid, int number, int col)
         {
-            //int size = board.GetLength(0);
             for (int i = 0; i < size; i++)
             {
-                if (board[i, col] == number)
+                if (grid[i, col] == number)
                     return true;
             }
             return false;
         }
-        private bool SearchBox(int[,] board, int number, int row, int col)
+        // search the local 3x3 box
+        private bool SearchBox(int[,] grid, int number, int row, int col)
         {
             int boxRow = row - row % 3;
             int boxCol = col - col % 3;
@@ -39,64 +40,59 @@ namespace GamingPlatform
             {
                 for (int j = boxCol; j < boxCol + 3; j++)
                 {
-                    if (board[i, j] == number)
+                    if (grid[i, j] == number)
                         return true;
                 }
             }
             return false;
         }
-        private bool IsValidEntry(int[,] board, int number, int row, int col)
-        {
-            return !SearchRow(board, number, row) &&
-                !SearchColumn(board, number, col) &&
-                !SearchBox(board, number, row, col);
-        }
-        public bool Solve(int[,] board)
-        {
-            // int size = board.GetLength(0);
 
+        public bool IsValidEntry(int[,] grid, int number, int row, int col)
+        {
+            return !SearchRow(grid, number, row) &&
+                !SearchColumn(grid, number, col) &&
+                !SearchBox(grid, number, row, col);
+        }
+        public bool Solve(int[,] grid)
+        {
             for (int row = 0; row < size; row++)
             {
                 for (int col = 0; col < size; col++)
                 {
-                    if (board[row, col] == 0)
+                    if (grid[row, col] == 0)
                     {
                         for (int entry = 1; entry <= size; entry++)
                         {
-                            if (IsValidEntry(board, entry, row, col))
+                            if (IsValidEntry(grid, entry, row, col))
                             {
-                                board[row, col] = entry;
+                                grid[row, col] = entry;
 
-                                if (Solve(board))
+                                if (Solve(grid))
                                 {
                                     return true;
                                 }
                                 else
-                                    board[row, col] = 0;
+                                    grid[row, col] = 0;
                             }
                         }
                         return false;
                     }
                 }
-
             }
             return true;
         }
-        public void PrintBoard(int[,] board)
+        public void PrintGrid(int[,] grid, TableLayoutPanel table)
         {
-            //int size = board.GetLength(0);
-            for (int row = 0; row < size; row++)
-            {
-                if (row % 3 == 0 && row != 0)
-                    Console.WriteLine("-----------");
-                for (int col = 0; col < size; col++)
-                {
-                    if (col % 3 == 0 && col != 0)
-                        Console.Write("|");
-                    Console.Write(board[row, col]);
-                }
-                Console.WriteLine();
+            int row = grid.GetLength(0);
+            int column = grid.GetLength(1);
 
+            for (int i = 0; i < row; i++)
+            {
+                for (int j = 0; j < column; j++)
+                {
+                    Control control = table.GetControlFromPosition(j, i);
+                    control.Text = $"{grid[i, j]}";
+                }
             }
         }
     }

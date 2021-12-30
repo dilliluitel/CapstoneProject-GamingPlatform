@@ -13,55 +13,18 @@ namespace GamingPlatform
     public partial class SudokuSolver : Form
     {
         Sudoku sudoku = new Sudoku();
+        Puzzle puzzle = new Puzzle();
 
-        int[,] board = {
-            {7,0,2,0,5,0,6,0,0},
-            {0,0,0,0,0,3,0,0,0},
-            {1,0,0,0,0,9,5,0,0},
-            {8,0,0,0,0,0,0,9,0},
-            {0,4,3,0,0,0,7,5,0},
-            {0,9,0,0,0,0,0,0,8},
-            {0,0,9,7,0,0,0,0,5},
-            {0,0,0,2,0,0,0,0,0},
-            {0,0,7,0,4,0,2,0,3}
-           };
+        const int size = 9;
+        int[,] grid = new int[size, size];
 
         public SudokuSolver()
         {
-            InitializeComponent();
-          //  AssignLabelToGrid();
+           grid = puzzle.GetPuzzle(0);
+           InitializeComponent();
         }
 
-        private void AssignLabelToGrid()
-        {
-           // int row = Board.RowCount;
-            //int column = Board.ColumnCount;
-
-            //TextBox box = null;
-/*            for (int i = 0; i < Board.Controls.Count; i++)
-            {
-                if (Board.Controls[i] is TextBox)
-                {
-                    box = (TextBox)Board.Controls[i];
-                    box.Text = $"{i}";
-                }
-                else
-                    continue;
-            }*/
-            /*for (int i = 0; i < 9; i++)
-            {
-                for (int j = 0; j < 9; j++)
-                {
-                    Control C = Board.GetControlFromPosition(column, row);
-                    if (box != null)
-                        box.Text = "A";
-                    else
-                        continue;
-                }
-            }*/
-
-        }
-
+        //Table Layout for sudoku board
         private void Board_Paint(object sender, PaintEventArgs e)
         {
             int row = Board.RowCount;
@@ -71,33 +34,127 @@ namespace GamingPlatform
             {
                 for (int j = 0; j < column; j++)
                 {
-                    Control C = Board.GetControlFromPosition(i, j);
-                    if(board[i, j] == 0)
+                    Control C = Board.GetControlFromPosition(j, i);
+                    C.TextChanged += new System.EventHandler(textBox_TextChanged);
+                    
+                    if (grid[i, j] == 0)
                         C.Text = "";
                     else
-                        C.Text = $"{board[i, j]}";
+                        C.Text = $"{grid[i, j]}";
                 }
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        //TextChanged event handler
+        private void textBox_TextChanged(object sender, EventArgs e)
         {
-            sudoku.Solve(board);
+            TextBox tBox = sender as TextBox;
+            TableLayoutPanelCellPosition cell = Board.GetPositionFromControl(tBox);
+            if (string.IsNullOrEmpty(tBox.Text))
+                return;
 
+            if (int.TryParse(tBox.Text, out int result))
+            {
+                grid[cell.Row, cell.Column] = result;
+                tBox.ForeColor = Color.Green;
+            }
+        }
+
+        //Solve button
+        private void Solve_Click(object sender, EventArgs e)
+        {
+            if (sudoku.Solve(grid))
+            {
+                sudoku.PrintGrid(grid, Board);
+                display.Text = "Solved!";
+            }
+            else
+                display.Text = "Unsolvable grid.";
+        }
+
+        //submit button
+        private void Submit_Click(object sender, EventArgs e)
+        {
             int row = Board.RowCount;
             int column = Board.ColumnCount;
+            int temp=0;
 
             for (int i = 0; i < row; i++)
             {
                 for (int j = 0; j < column; j++)
                 {
-                    Control C = Board.GetControlFromPosition(i, j);
-                    if (board[i, j] == 0)
-                        C.Text = "";
+                    grid[i, j] = 0;             //clears the initial grid
+
+                    Control C = Board.GetControlFromPosition(j, i);
+
+                    if (string.IsNullOrEmpty(C.Text))
+                    {
+                        display.Text = "Board is not fully populated!";
+                        return;
+                    }
+                    else if (int.TryParse(C.Text, out int result))
+                    {
+                            temp = result;
+                    }
+
+                    if (sudoku.IsValidEntry(grid, temp, i, j))
+                        grid[i, j] = temp;      //adds the number back to grid.
                     else
-                        C.Text = $"{board[i, j]}";
+                    {
+                        display.Text = "Incorrect Solution.";
+                        return;
+                    }
                 }
             }
+            sudoku.PrintGrid(grid, Board);
+            display.Text = "You solved it successfully!";
+        }
+
+        //Clear button
+        private void Clear_Click(object sender, EventArgs e)
+        {
+            int row = Board.RowCount;
+            int column = Board.ColumnCount;
+            TextBox tBox;
+
+            for (int i = 0; i < row; i++)
+            {
+                for (int j = 0; j < column; j++)
+                {
+                    grid[i, j] = 0;             //clears the initial grid
+
+                    Control C = Board.GetControlFromPosition(j, i);
+                    tBox = (TextBox)C;
+                    tBox.Clear();
+                }
+            }
+
+            levelComboBox_SelectedIndexChanged(sender, e);
+
+        }
+
+        private void levelComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (levelComboBox.SelectedItem)
+                {
+                    case "Easy":
+                        grid = puzzle.GetPuzzle(0);
+                        break;
+
+                    case "Medium":
+                        grid = puzzle.GetPuzzle(1);
+                        break;
+
+                    case "Hard":
+                        grid = puzzle.GetPuzzle(2);
+                        break;
+
+                }
+                for (int i = 0; i < Board.Controls.Count; i++)
+                {
+                    Control C = Board.Controls[i];
+                    C.TextChanged += new System.EventHandler(textBox_TextChanged);
+                } 
         }
     }
 }
