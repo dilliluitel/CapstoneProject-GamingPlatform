@@ -29,6 +29,7 @@ namespace GamingPlatform
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label1 = new System.Windows.Forms.Label();
             this.Board = new System.Windows.Forms.TableLayoutPanel();
@@ -119,6 +120,7 @@ namespace GamingPlatform
             this.display = new System.Windows.Forms.Label();
             this.solve = new System.Windows.Forms.Button();
             this.Submit = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -148,7 +150,7 @@ namespace GamingPlatform
             this.splitContainer1.Panel2.Controls.Add(this.solve);
             this.splitContainer1.Panel2.Controls.Add(this.Submit);
             this.splitContainer1.Size = new System.Drawing.Size(1458, 1313);
-            this.splitContainer1.SplitterDistance = 856;
+            this.splitContainer1.SplitterDistance = 855;
             this.splitContainer1.TabIndex = 0;
             // 
             // label1
@@ -260,7 +262,7 @@ namespace GamingPlatform
             this.Board.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Board.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.Board.Location = new System.Drawing.Point(392, 103);
-            this.Board.Margin = new System.Windows.Forms.Padding(10);
+            this.Board.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.Board.Name = "Board";
             this.Board.RowCount = 9;
             this.Board.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
@@ -1347,5 +1349,6 @@ namespace GamingPlatform
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label display;
         private System.Windows.Forms.Button Clear;
+        private System.Windows.Forms.Timer timer1;
     }
 }

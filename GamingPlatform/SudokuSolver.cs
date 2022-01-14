@@ -22,7 +22,7 @@ namespace GamingPlatform
         {
             grid = (int[,])puzzle.GetPuzzle(0).Clone();
             puzzleState = (int[,])puzzle.GetPuzzle(0).Clone();
-
+            
             InitializeComponent();
         }
 
@@ -36,19 +36,20 @@ namespace GamingPlatform
             {
                 for (int j = 0; j < column; j++)
                 {
-                    Control C = Board.GetControlFromPosition(j, i);
+                    Control control = Board.GetControlFromPosition(j, i);
 
-                    C.TextChanged += new System.EventHandler(textBox_TextChanged);
-                    C.KeyPress += new KeyPressEventHandler(textBox_KeyPress);
+                    control.TextChanged += new System.EventHandler(textBox_TextChanged);
+                    control.KeyPress += new KeyPressEventHandler(textBox_KeyPress);
 
                     if (grid[i, j] == 0)
                     {
-                        C.Text = "";
+                        control.Text = "";
+                        control.BackColor = Color.LightYellow;
                     }
                     else
                     {
-                        C.Text = $"{grid[i, j]}";
-                        C.ForeColor = Color.Red;
+                        control.Text = $"{grid[i, j]}";
+                        control.ForeColor = Color.Red;
                     }
                 }
             }
@@ -100,22 +101,22 @@ namespace GamingPlatform
         {
             int row = Board.RowCount;
             int column = Board.ColumnCount;
-            int temp=0;
+            int temp = 0;
 
             for (int i = 0; i < row; i++)
             {
                 for (int j = 0; j < column; j++)
                 {
-                    grid[i, j] = 0;             //clears the initial grid
+                    grid[i, j] = 0;             //clears the initial array values
 
-                    Control C = Board.GetControlFromPosition(j, i);
+                    Control control = Board.GetControlFromPosition(j, i);
 
-                    if (string.IsNullOrEmpty(C.Text))
+                    if (string.IsNullOrEmpty(control.Text))
                     {
                         display.Text = "Board is not fully populated!";
                         return;
                     }
-                    else if (int.TryParse(C.Text, out int result))
+                    else if (int.TryParse(control.Text, out int result))
                     {
                         temp = result;
                     }
@@ -124,6 +125,7 @@ namespace GamingPlatform
                         grid[i, j] = temp;      //adds the number back to grid.
                     else
                     {
+                        grid[i, j] = temp;
                         display.Text = "Incorrect Solution.";
                         return;
                     }
@@ -146,12 +148,13 @@ namespace GamingPlatform
                 {
                     grid[i, j] = puzzleState[i,j];            
 
-                    Control C = Board.GetControlFromPosition(j, i);
-                    tBox = (TextBox)C;
+                    Control control = Board.GetControlFromPosition(j, i);
+                    tBox = (TextBox)control;
                     tBox.Clear();
+
+                    display.Text = "";
                 }
             }
-
             levelComboBox_SelectedIndexChanged(sender, e);
         }
 
@@ -174,17 +177,10 @@ namespace GamingPlatform
                 case "Hard":
                 puzzleLevel = (int) PuzzleLevel.Hard + key;
                     break;
-
             }
 
             grid = (int[,])puzzle.GetPuzzle(puzzleLevel).Clone();
             puzzleState = (int[,])puzzle.GetPuzzle(puzzleLevel).Clone();
-
-            for (int i = 0; i < Board.Controls.Count; i++)
-                {
-                    Control C = Board.Controls[i];
-                    C.TextChanged += new System.EventHandler(textBox_TextChanged);
-                } 
         }
     }
 }

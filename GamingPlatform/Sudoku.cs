@@ -61,7 +61,7 @@ namespace GamingPlatform
                 {
                     if (grid[row, col] == 0)
                     {
-                        for (int entry = 1; entry <= size; entry++)
+                        for (int entry = 1; entry <= 9; entry++)
                         {
                             if (IsValidEntry(grid, entry, row, col))
                             {

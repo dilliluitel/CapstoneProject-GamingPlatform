@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace GamingPlatform
 {
    public class Puzzle
-    {
+   {
         int[][,] puzzle = {
             //Easy puzzles
             new int[,]{
